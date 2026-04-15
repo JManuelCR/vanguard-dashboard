@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+/* 1. Definición de Variables Base (Light Mode) */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --card: #f8fafc;
+  --border: #e2e8f0;
+
+  /* Font colors mapped to the scale below */
+  --text-main: var(--color-danube-950);
+  --text-description: var(--color-danube-800);
+  --text-placeholder: var(--color-danube-500);
 }
 
+/* 2. Configuración del Tema Tailwind v4 */
 @theme inline {
+  /* Scale provided by UI colors */
+  --color-danube-50: #f1f8fd;
+  --color-danube-100: #e0eff9;
+  --color-danube-200: #c9e3f4;
+  --color-danube-300: #a3d2ed;
+  --color-danube-400: #78b9e2;
+  --color-danube-500: #529bd8;
+  --color-danube-600: #4385cd;
+  --color-danube-700: #3a71bb;
+  --color-danube-800: #345c99;
+  --color-danube-900: #2f4e79;
+  --color-danube-950: #20314b;
+
+  --color-accent: #635bff;
+
+  /* Semantic Tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-border: var(--border);
+
+  /*Typography Tokens  */
+  --color-text-main: var(--text-main);
+  --color-text-description: var(--text-description);
+  --color-text-placeholder: var(--text-placeholder);
+
+  --color-vanguard-black: #000000;
+  --color-vanguard-white: #ffffff;
+
+  /*Path for Next.js sources */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*3. Dark Mode Logic */
+@variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --background: #020617; /*Danube dark base */
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --border: #334155;
+
+  --text-main: var(--color-danube-50);
+  --text-description: var(--color-danube-300);
+  --text-placeholder: var(--color-danube-600);
+}
+
+/*4. Global Styles */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);/*Use system font/Next.js */
+    @apply antialiased; /*Improve font rendering */
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
