@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,8 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@components/*": [".src/components"],
-      "@atoms/*": [".src/components/atoms"]
+      "@components/*": ["./app/components"],
+      "@atoms/*": ["./app/components/atoms"]
     }
   },
   "include": [
