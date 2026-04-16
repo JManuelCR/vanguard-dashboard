@@ -47,6 +47,9 @@
   /*Path for Next.js sources */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-primary: var(--color-danube-500);
+  --color-secondary: var(--color-danube-200);
 }
 
 /*3. Dark Mode Logic */
